@@ -1,0 +1,255 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 build/programs/obj/global_state.o
+ .data          0x00000000        0x0 build/programs/obj/global_state.o
+ .bss           0x00000000        0x0 build/programs/obj/global_state.o
+ .comment       0x00000000       0x27 build/programs/obj/global_state.o
+ .text          0x00000000        0x0 build/programs/obj/rt/crt0.o
+ .data          0x00000000        0x0 build/programs/obj/rt/crt0.o
+ .bss           0x00000000        0x0 build/programs/obj/rt/crt0.o
+ .text          0x00000000        0x0 build/programs/obj/rt/mem.o
+ .data          0x00000000        0x0 build/programs/obj/rt/mem.o
+ .bss           0x00000000        0x0 build/programs/obj/rt/mem.o
+ .text.memcpy   0x00000000       0x16 build/programs/obj/rt/mem.o
+ .text.memset   0x00000000       0x10 build/programs/obj/rt/mem.o
+ .debug_info    0x00000000      0x134 build/programs/obj/rt/mem.o
+ .debug_abbrev  0x00000000       0xc3 build/programs/obj/rt/mem.o
+ .debug_loclists
+                0x00000000       0xaf build/programs/obj/rt/mem.o
+ .debug_aranges
+                0x00000000       0x28 build/programs/obj/rt/mem.o
+ .debug_rnglists
+                0x00000000       0x19 build/programs/obj/rt/mem.o
+ .debug_line    0x00000000       0xc8 build/programs/obj/rt/mem.o
+ .debug_str     0x00000000      0x1b8 build/programs/obj/rt/mem.o
+ .comment       0x00000000       0x27 build/programs/obj/rt/mem.o
+ .debug_frame   0x00000000       0x38 build/programs/obj/rt/mem.o
+ .ARM.attributes
+                0x00000000       0x2d build/programs/obj/rt/mem.o
+ .data          0x00000000        0x0 build/programs/obj/lib/syscalls.o
+ .bss           0x00000000        0x0 build/programs/obj/lib/syscalls.o
+ .text          0x00000000        0x0 build/programs/obj/lib/printf.o
+ .data          0x00000000        0x0 build/programs/obj/lib/printf.o
+ .bss           0x00000000        0x0 build/programs/obj/lib/printf.o
+ .text.sleep_ms
+                0x00000000       0x1a build/programs/obj/lib/printf.o
+ .text.spin_ticks
+                0x00000000       0x16 build/programs/obj/lib/printf.o
+ .comment       0x00000000       0x27 build/programs/obj/lib/printf.o
+ .text          0x00000000        0x0 build/programs/obj/lib/format.o
+ .data          0x00000000        0x0 build/programs/obj/lib/format.o
+ .bss           0x00000000        0x0 build/programs/obj/lib/format.o
+ .comment       0x00000000       0x27 build/programs/obj/lib/format.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD build/programs/obj/global_state.o
+LOAD build/programs/obj/rt/crt0.o
+LOAD build/programs/obj/rt/mem.o
+LOAD build/programs/obj/lib/syscalls.o
+LOAD build/programs/obj/lib/printf.o
+LOAD build/programs/obj/lib/format.o
+LOAD /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a
+                0x00000200                        MPU_STEP = 0x200
+                0x00000000                        . = 0x0
+
+.text           0x00000000      0x224
+ *(.text.start)
+ .text.start    0x00000000        0x8 build/programs/obj/rt/crt0.o
+                0x00000000                _start
+ *(.text .text.*)
+ .text.startup.main
+                0x00000008       0x38 build/programs/obj/global_state.o
+                0x00000008                main
+ .text          0x00000040       0x3e build/programs/obj/lib/syscalls.o
+                0x00000040                sys_write
+                0x00000044                sys_read
+                0x00000048                sys_uptime
+                0x0000004c                sys_exit
+                0x00000052                task_yield
+                0x00000056                task_delay
+                0x0000005a                task_delay_until
+                0x0000005e                trace_dump
+                0x00000062                task_tick_count
+                0x00000066                sys_image_count
+                0x0000006a                sys_image_name
+                0x0000006e                sys_program_run
+                0x00000072                sys_program_wait
+                0x00000076                task_exit
+ .text.write_all
+                0x0000007e       0x1e build/programs/obj/lib/printf.o
+                0x0000007e                write_all
+ .text.printf_out
+                0x0000009c       0x22 build/programs/obj/lib/printf.o
+ *fill*         0x000000be        0x2 
+ .text.printf   0x000000c0       0x34 build/programs/obj/lib/printf.o
+                0x000000c0                printf
+ .text.utoa_base
+                0x000000f4       0x4c build/programs/obj/lib/format.o
+ .text.put_string
+                0x00000140       0x16 build/programs/obj/lib/format.o
+ .text.utoa_dec
+                0x00000156        0x8 build/programs/obj/lib/format.o
+                0x00000156                utoa_dec
+ .text.utoa_hex
+                0x0000015e        0x8 build/programs/obj/lib/format.o
+                0x0000015e                utoa_hex
+ *fill*         0x00000166        0x2 
+ .text.vformat  0x00000168       0xbc build/programs/obj/lib/format.o
+                0x00000168                vformat
+                0x00000224                        . = ALIGN (0x4)
+
+.glue_7         0x00000224        0x0
+ .glue_7        0x00000224        0x0 linker stubs
+
+.glue_7t        0x00000224        0x0
+ .glue_7t       0x00000224        0x0 linker stubs
+
+.vfp11_veneer   0x00000224        0x0
+ .vfp11_veneer  0x00000224        0x0 linker stubs
+
+.v4_bx          0x00000224        0x0
+ .v4_bx         0x00000224        0x0 linker stubs
+
+.iplt           0x00000224        0x0
+ .iplt          0x00000224        0x0 build/programs/obj/global_state.o
+
+.rodata         0x00000224       0x4c
+ *(.rodata .rodata.*)
+ .rodata.main.str1.1
+                0x00000224       0x3c build/programs/obj/global_state.o
+                                 0x35 (size before relaxing)
+ .rodata.table  0x00000260       0x10 build/programs/obj/global_state.o
+                0x00000260                table
+ .rodata.vformat.str1.1
+                0x00000270        0x7 build/programs/obj/lib/format.o
+                0x00000278                        . = ALIGN (0x4)
+                0x00000270                        __code_end = .
+
+.rel.dyn        0x00000270        0x0
+ .rel.iplt      0x00000270        0x0 build/programs/obj/global_state.o
+                0x00000400                        . = ALIGN (MPU_STEP)
+                0x00000400                        __data_start = .
+
+.data           0x00000400       0x14
+                0x00000400        0x4 LONG 0x0
+ *(.data .data.*)
+ .data.table_ptr
+                0x00000404        0x4 build/programs/obj/global_state.o
+                0x00000404                table_ptr
+ .data.bss_ptr  0x00000408        0x4 build/programs/obj/global_state.o
+                0x00000408                bss_ptr
+ .data.global_ptr
+                0x0000040c        0x4 build/programs/obj/global_state.o
+                0x0000040c                global_ptr
+ .data.global   0x00000410        0x4 build/programs/obj/global_state.o
+                0x00000410                global
+                0x00000414                        . = ALIGN (0x4)
+
+.igot.plt       0x00000414        0x0
+ .igot.plt      0x00000414        0x0 build/programs/obj/global_state.o
+
+.bss            0x00000414        0x4
+ *(.bss .bss.*)
+ .bss.bss       0x00000414        0x4 build/programs/obj/global_state.o
+                0x00000414                bss
+ *(COMMON)
+                0x00000418                        . = ALIGN (0x4)
+                0x00000418                        __program_end = .
+
+/DISCARD/
+ *(.ARM.exidx* .ARM.extab*)
+ *(.comment .note*)
+OUTPUT(build/programs/global_state.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2b
+ .ARM.attributes
+                0x00000000       0x2d build/programs/obj/global_state.o
+ .ARM.attributes
+                0x0000002d       0x21 build/programs/obj/rt/crt0.o
+ .ARM.attributes
+                0x0000004e       0x21 build/programs/obj/lib/syscalls.o
+ .ARM.attributes
+                0x0000006f       0x2d build/programs/obj/lib/printf.o
+ .ARM.attributes
+                0x0000009c       0x2d build/programs/obj/lib/format.o
+
+.debug_info     0x00000000      0x9e7
+ .debug_info    0x00000000      0x17a build/programs/obj/global_state.o
+ .debug_info    0x0000017a       0x31 build/programs/obj/rt/crt0.o
+ .debug_info    0x000001ab       0xce build/programs/obj/lib/syscalls.o
+ .debug_info    0x00000279      0x395 build/programs/obj/lib/printf.o
+ .debug_info    0x0000060e      0x3d9 build/programs/obj/lib/format.o
+
+.debug_abbrev   0x00000000      0x561
+ .debug_abbrev  0x00000000       0xda build/programs/obj/global_state.o
+ .debug_abbrev  0x000000da       0x28 build/programs/obj/rt/crt0.o
+ .debug_abbrev  0x00000102       0x28 build/programs/obj/lib/syscalls.o
+ .debug_abbrev  0x0000012a      0x261 build/programs/obj/lib/printf.o
+ .debug_abbrev  0x0000038b      0x1d6 build/programs/obj/lib/format.o
+
+.debug_loclists
+                0x00000000      0x3f3
+ .debug_loclists
+                0x00000000       0x2d build/programs/obj/global_state.o
+ .debug_loclists
+                0x0000002d       0xf3 build/programs/obj/lib/printf.o
+ .debug_loclists
+                0x00000120      0x2d3 build/programs/obj/lib/format.o
+
+.debug_aranges  0x00000000       0xe0
+ .debug_aranges
+                0x00000000       0x20 build/programs/obj/global_state.o
+ .debug_aranges
+                0x00000020       0x20 build/programs/obj/rt/crt0.o
+ .debug_aranges
+                0x00000040       0x20 build/programs/obj/lib/syscalls.o
+ .debug_aranges
+                0x00000060       0x40 build/programs/obj/lib/printf.o
+ .debug_aranges
+                0x000000a0       0x40 build/programs/obj/lib/format.o
+
+.debug_rnglists
+                0x00000000       0x85
+ .debug_rnglists
+                0x00000000       0x13 build/programs/obj/global_state.o
+ .debug_rnglists
+                0x00000013       0x2b build/programs/obj/lib/printf.o
+ .debug_rnglists
+                0x0000003e       0x47 build/programs/obj/lib/format.o
+
+.debug_line     0x00000000      0x59d
+ .debug_line    0x00000000       0x87 build/programs/obj/global_state.o
+ .debug_line    0x00000087       0x4b build/programs/obj/rt/crt0.o
+ .debug_line    0x000000d2       0x76 build/programs/obj/lib/syscalls.o
+ .debug_line    0x00000148      0x1f0 build/programs/obj/lib/printf.o
+ .debug_line    0x00000338      0x265 build/programs/obj/lib/format.o
+
+.debug_str      0x00000000      0x37a
+ .debug_str     0x00000000      0x37a build/programs/obj/global_state.o
+                                0x216 (size before relaxing)
+ .debug_str     0x0000037a       0x5a build/programs/obj/rt/crt0.o
+ .debug_str     0x0000037a      0x102 build/programs/obj/lib/syscalls.o
+ .debug_str     0x0000037a      0x283 build/programs/obj/lib/printf.o
+ .debug_str     0x0000037a      0x23e build/programs/obj/lib/format.o
+
+.debug_frame    0x00000000      0x180
+ .debug_frame   0x00000000       0x28 build/programs/obj/global_state.o
+ .debug_frame   0x00000028       0xb0 build/programs/obj/lib/printf.o
+ .debug_frame   0x000000d8       0xa8 build/programs/obj/lib/format.o
+
+.debug_line_str
+                0x00000000       0x56
+ .debug_line_str
+                0x00000000       0x56 build/programs/obj/rt/crt0.o
+                                 0x47 (size before relaxing)
+ .debug_line_str
+                0x00000056       0x43 build/programs/obj/lib/syscalls.o
